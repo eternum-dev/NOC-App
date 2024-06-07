@@ -1,14 +1,21 @@
+import { error } from "console";
+import { CheckService } from "./domains/use-cases/checks/check-service";
 import { CronService } from "./presentation/cron/cron.service";
 import { Server } from "./presentation/server";
 
 
 
 (() => {
-    main();
+  main();
 })();
 
 function main() {
-    Server.start();
+  Server.start();
 
-    CronService.createJob('* * * * * *', ()=> console.log('object'));
+  CronService.createJob('*/5 * * * * *', () => {
+    new CheckService(
+      () => console.log('success'),
+      (error) => console.log(error)
+    ).execute('https://google.com')
+  });
 }
