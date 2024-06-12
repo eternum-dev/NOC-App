@@ -1,6 +1,4 @@
-import { error } from "console";
-import { CheckService } from "./domains/use-cases/checks/check-service";
-import { CronService } from "./presentation/cron/cron.service";
+import { envs } from "./config/plugins/envs.plugin";
 import { Server } from "./presentation/server";
 
 
@@ -11,11 +9,5 @@ import { Server } from "./presentation/server";
 
 function main() {
   Server.start();
-
-  CronService.createJob('*/5 * * * * *', () => {
-    new CheckService(
-      () => console.log('success'),
-      (error) => console.log(error)
-    ).execute('https://google.com')
-  });
+  // console.log({ envs });
 }
