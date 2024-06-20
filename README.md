@@ -21,9 +21,14 @@ Esta es mi implementación de un NOC desarrolado con NodeJS y TypeScript.
 ### Levantar el proyecto
 
 ```
-    npm start
+    npm run dev
 ```
 
+### Levantar las bases  de datos 
+
+```
+    docker compose up -D
+```
 ## Vaiables de Entorno
 
 1. Clonar o renombrar el archivo de .env.template a .env.
@@ -32,7 +37,9 @@ Esta es mi implementación de un NOC desarrolado con NodeJS y TypeScript.
 Ejemplo:
 
 ```
-PORT              =  3000
-MAILER_EMAIL      =  tu-email@google.com
-MAILER_SECRET_KEY =  tu-clave-secreta
+   PORT              =  3000
+   MAILER_EMAIL      =  tu-email@google.com
+   MAILER_SECRET_KEY =  tu-clave-secreta
 ```
+
+
