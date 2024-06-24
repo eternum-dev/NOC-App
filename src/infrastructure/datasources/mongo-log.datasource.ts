@@ -9,7 +9,6 @@ export class MongoLogDatasource implements LogDatasource {
 
         const newLog = await logModel.create(log);
         await newLog.save();
-        console.log('Mongo log Create', newLog);
     }
 
     async getLogs(severityLevel: LogSeveritylevel): Promise<LogEntity[]> {
