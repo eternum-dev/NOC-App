@@ -6,16 +6,25 @@ import { CronService } from "./cron/cron.service";
 import { EmailService } from "./email/email.service";
 import { SendEmailLogs } from "../domains/use-cases/email/send-email";
 import { MongoLogDatasource } from "../infrastructure/datasources/mongo-log.datasource";
+import { PostgresLogDatasource } from "../infrastructure/datasources/postgres-log.datasource";
+import { CheckServiceMultiple } from "../domains/use-cases/checks/check-service-multiple";
 
 
 
 
-const logRepository = new LogRepositoryImpl(
-    // new FileSystemDatasource()
+const fsLogRepository = new LogRepositoryImpl(
+    new FileSystemDatasource()
+);
+const mongoLogRepository = new LogRepositoryImpl(
     new MongoLogDatasource()
 )
 
-const emailService = new EmailService();
+const postgresLogRepository = new LogRepositoryImpl(
+    new PostgresLogDatasource()
+)
+
+
+// const emailService = new EmailService();
 
 export class Server {
 
@@ -35,9 +44,9 @@ export class Server {
             '*/5 * * * * *',
 
             () => {
-                const url = 'https://gooasdasgle.com'
-                new CheckService(
-                    logRepository,
+                const url = 'https://google.com'
+                new CheckServiceMultiple(
+                    [fsLogRepository, mongoLogRepository, postgresLogRepository],
                     () => console.log(`${url} is ok `),
                     (error) => console.log(error)
                 ).execute(url)
