@@ -12,3 +12,7 @@ postgres/
 
 mongo-test/
 postgres-test/
+
+
+!src/data/mongo
+!src/data/postgres
