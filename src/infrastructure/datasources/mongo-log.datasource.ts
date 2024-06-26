@@ -12,10 +12,12 @@ export class MongoLogDatasource implements LogDatasource {
     }
 
     async getLogs(severityLevel: LogSeveritylevel): Promise<LogEntity[]> {
+      
         const logs = await logModel.find({
             level: severityLevel
         });
 
         return logs.map(LogEntity.fromObject);
     }
+   
 }
