@@ -3,6 +3,7 @@ import { MongoDataBase } from "./init";
 
 
 
+
 describe('Pruebas en init.test.ts', () => {
 
     afterAll(()=> {
@@ -19,6 +20,7 @@ describe('Pruebas en init.test.ts', () => {
         expect(connected).toBeTruthy();
         console.log(connected);
     });
+
     test('should throw an error ', async () => {
 
         try {
@@ -28,7 +30,7 @@ describe('Pruebas en init.test.ts', () => {
             });
             expect(true).toBeFalsy();
         } catch (error) {
-
+ 
         }
 
     });
