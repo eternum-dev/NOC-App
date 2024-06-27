@@ -31,12 +31,17 @@ export class LogEntity {
         this.origin = origin;
     }
 
-    static fromJson = (json: string ): LogEntity => {
+    static fromJson = (json: string): LogEntity => {
 
-        json = (json == '') ? '{}' : json; 
+        json = (json == '') ? '{}' : json;
 
         const { level, message, createdAt, origin } = JSON.parse(json);
-        const log = new LogEntity({ message, level, createdAt, origin });
+        const log = new LogEntity({
+            message,
+            level,
+            createdAt: new Date(createdAt),
+            origin
+        }); 
 
         return log;
     }
@@ -45,6 +50,6 @@ export class LogEntity {
         const { level, message, createdAt, origin } = object;
         const log = new LogEntity({ level, message, createdAt, origin });
 
-        return log; 
+        return log;
     }
 }
