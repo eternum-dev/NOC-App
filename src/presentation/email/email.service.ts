@@ -25,11 +25,7 @@ export class EmailService {
             pass: envs.MAILER_SECRET_KEY,
         }
     });
-    constructor(
-
-    ) {
-
-    }
+    constructor() { }
     async sendEmail(options: SendEmailOptions): Promise<boolean> {
 
         const { to, subject, htmlbody, attachments = [] } = options;
@@ -48,17 +44,16 @@ export class EmailService {
                 message: 'email sent',
                 origin: 'email.service.ts'
             });
-           
-
-
+            
             return true;
+
         } catch (error) {
             const log = new LogEntity({
                 level: LogSeveritylevel.high,
                 message: 'email not sent',
                 origin: 'email.service.ts'
             });
-           
+
 
 
             return false
