@@ -16,4 +16,4 @@ describe('Pruebas en envs.plugin', () => {
             MONGO_DB_NAME: 'NOC-test'
         });
     });
-}); 
+});  
