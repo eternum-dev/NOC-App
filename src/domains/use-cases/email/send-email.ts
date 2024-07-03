@@ -24,7 +24,7 @@ export class SendEmailLogs implements SendLogEmailUsecase {
 
             const log = new LogEntity({
                 level: LogSeveritylevel.low,
-                message: `${error}`,
+                message: "log email sent",
                 origin: 'send-email.ts'
             });
 
