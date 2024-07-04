@@ -9,15 +9,13 @@ export class LogRepositoryImpl implements LogRepository {
 
 
     constructor(
-        private readonly LogDatasource: LogDatasource // <-- aqui cambiamos el datasource mediante I-D injeccion de dependencias
-    ) {
-
-    }
-
+        private readonly LogDatasource: LogDatasource // <-- aqui cambiamos el datasource mediante I-D 
+    ) { }
 
     async saveLogs(log: LogEntity): Promise<void> {
-       return this.LogDatasource.saveLogs(log);
+        return this.LogDatasource.saveLogs(log);
     }
+
     async getLogs(severityLevel: LogSeveritylevel): Promise<LogEntity[]> {
         return this.LogDatasource.getLogs(severityLevel);
     }
