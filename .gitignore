@@ -13,6 +13,7 @@ postgres/
 mongo-test/
 postgres-test/
 
+coverage/
 
 !src/data/mongo
 !src/data/postgres
