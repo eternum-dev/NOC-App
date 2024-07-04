@@ -5,7 +5,7 @@ import { LogEntity, LogSeveritylevel } from '../../domains/entities/log.entity';
 // import { Attachment } from 'nodemailer/lib/mailer';
 
 
-interface SendEmailOptions {
+export interface SendEmailOptions {
     to: string | string[];
     subject: string;
     htmlbody: string;
